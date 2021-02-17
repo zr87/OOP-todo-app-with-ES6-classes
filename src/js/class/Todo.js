@@ -8,5 +8,9 @@ export class Todo {
         this.priority = priority;
         this.dueDate = dueDate;
     }
+
+    printDetails() {
+        return this.description + ", " + this.dueDate + ", " + this.priority;
+    }
 }
 
