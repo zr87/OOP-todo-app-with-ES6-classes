@@ -3,9 +3,17 @@ import TodoForm from './TodoForm.js';
 
 export default class TodoApp {
     #elementId;
-    appElement;
-    todolist;
-    listElement;
+    _todoForm;
+
+    _appElement;
+    get appElement() {
+        return this._appElement;
+    }
+
+    _todolist;
+    get todolist() {
+        return this._todolist;
+    }
 
     constructor(elementId) {
         this.#elementId = elementId;
@@ -13,18 +21,8 @@ export default class TodoApp {
     }
 
     #init() {
-        this.appElement = document.getElementById(this.#elementId);
-        this.#createTodoForm();
-        this.#createTodolist();
-    }
-
-    #createTodoForm() {
-        this.todoForm = new TodoForm(this);
-    }
-
-    #createTodolist() {
-        this.listElement = document.createElement("UL")
-        this.todolist= new TodoList(this.listElement);
-        this.appElement.append(this.listElement);
+        this._appElement = document.getElementById(this.#elementId);
+        this._todoForm = new TodoForm(this);
+        this._todolist = new TodoList(this);
     }
 }
