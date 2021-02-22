@@ -9,25 +9,13 @@
 
 <body>
 
-  <div class="app-container">
-    <form id="form">
-      <input type="text" name="todo" placeholder="What's your task?" required>
-      <input type="date" name="duedate" required>
-
-      <select name="priority" required>
-        <option value="" disabled selected>Select your option</option>
-        <option value="low">low</option>
-        <option value="medium">medium</option>
-        <option value="high">high</option>
-      </select>
-
-      <input type="submit" name="submit" value="create">
-    </form>
-    <ul id="todo-list">
-
-    </ul>
+  <div id="app-container">
   </div>
   
-  <script type="module" src="js/scripts.js"></script>
+  <script type="module">
+    import TodoApp from "./js/class/TodoApp.js";
+
+    let todoapp = new TodoApp("app-container");
+  </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-export class Todo {
+export default class Todo {
     description;
     priority;
     dueDate;
@@ -10,7 +10,14 @@ export class Todo {
     }
 
     printDetails() {
-        return this.description + ", " + this.dueDate + ", " + this.priority;
+        return this.description + ", " + this.dueDate + ", " + this.priority; //"asdasdasd, 2020-12-10, medium"
+    }
+
+    static castObject2Todo(obj) {
+        //csak akkor alakitja Todoo object-té ha megvan minden Tooo property-je
+        if (obj.hasOwnProperty("description") && obj.hasOwnProperty("priority") && obj.hasOwnProperty("dueDate")) {
+            return new Todo(obj.description, obj.priority, obj.dueDate);
+        } else throw Error("Object is missing some properties (description, priority or dueDate) ");
     }
 }
 
